@@ -54,6 +54,7 @@ export function VirtualScroll<T>(props: VirtualProps<T>) {
         element,
         top,
         setTop,
+        // set height as getter if it is reactive
         ...(typeof height === 'number'
           ? { height }
           : {
@@ -87,6 +88,7 @@ export function VirtualScroll<T>(props: VirtualProps<T>) {
           bottomIndex = i;
         }
 
+        // update signal value within element data object
         element.setTop(newTotalHeight);
         // tracks height signal if reactive
         newTotalHeight += element.height;
